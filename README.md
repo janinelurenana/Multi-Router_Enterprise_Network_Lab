@@ -151,8 +151,6 @@ A full troubleshooting log is available in [troubleshooting.md](./troubleshootin
 
 ```text
 Small_Enterprise_VLAN_OSPF_NAT_ACL/
-├── diagrams/
-│   └── topology.png
 |
 ├── configs/
 │   ├── R1-startup-config.txt
@@ -163,8 +161,12 @@ Small_Enterprise_VLAN_OSPF_NAT_ACL/
 │   └── SW3-startup-config.txt
 |
 ├── verification/
-│   ├── ping-tests.md
-│   └── ospf-neighbors.md
+|   ├── topology.png
+|   ├── ospf-neighbors.png
+|   ├── routing-table.png
+|   ├── nat-translations.png
+|   ├── acl-block-vlan20-to-vlan10.png
+|   └── successful-connectivity.png
 |
 ├── troubleshooting.md
 |
