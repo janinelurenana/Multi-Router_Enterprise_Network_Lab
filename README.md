@@ -10,7 +10,7 @@ The lab demonstrates **VLAN-based segmentation**, **inter-VLAN routing**, **dyna
 
 ## Network Topology
 
-![Network Topology](./diagrams/topology.png)
+![Network Topology](./verification/topology.png)
 
 ### Logical Design Rationale
 
