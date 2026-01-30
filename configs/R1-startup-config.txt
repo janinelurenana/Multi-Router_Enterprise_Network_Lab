@@ -1,0 +1,76 @@
+hostname R1
+!
+!
+interface FastEthernet0/0
+ ip address 203.0.113.2 255.255.255.252
+ ip nat outside
+ ip virtual-reassembly
+ duplex auto
+ speed auto
+!
+interface Serial0/0
+ ip address 10.0.12.1 255.255.255.252
+ ip nat inside
+ ip virtual-reassembly
+ clock rate 64000
+!
+interface FastEthernet0/1
+ no ip address
+ speed 100
+ full-duplex
+!
+interface FastEthernet0/1.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+ ip nat inside
+ ip virtual-reassembly
+!
+interface FastEthernet0/1.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+ ip access-group VLAN20_BLOCK in
+ ip nat inside
+ ip virtual-reassembly
+!
+!
+interface Vlan1
+ no ip address
+!
+router ospf 1
+ log-adjacency-changes
+ network 10.0.12.0 0.0.0.3 area 0
+ network 192.168.10.0 0.0.0.255 area 0
+ network 192.168.20.0 0.0.0.255 area 0
+ default-information originate
+!
+ip forward-protocol nd
+ip route 0.0.0.0 0.0.0.0 FastEthernet0/0
+ip route 0.0.0.0 0.0.0.0 203.0.113.1
+!
+!
+no ip http server
+no ip http secure-server
+ip nat inside source list 1 interface FastEthernet0/0 overload
+!
+ip access-list extended VLAN20_BLOCK
+ permit icmp 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255 echo-reply
+ deny   icmp 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255 echo
+ permit ip any any
+!
+access-list 1 permit 192.168.0.0 0.0.255.255
+no cdp log mismatch duplex
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+!
+end
