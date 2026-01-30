@@ -56,7 +56,8 @@ This design mirrors a junior-level enterprise environment where segmentation, ro
 
 ## Key Configurations & Features
 
-> ⚠️ Full device configurations are stored in `/configs`. This section highlights **what** was implemented and **why**.
+> ⚠️ Full device configurations are stored in [/configs](./configs).
+. This section highlights **what** was implemented and **why**.
 
 ### VLAN Segmentation & Trunking
 
@@ -104,7 +105,7 @@ This design mirrors a junior-level enterprise environment where segmentation, ro
 | Internet Access | VLAN 10 | 8.8.8.8     | ✅ Success |
 | Internet Access | VLAN 20 | 8.8.8.8     | ✅ Success |
 
-Verification outputs are stored in `/verification`.
+Verification outputs are stored in [/verification](./verification).
 
 ---
 
@@ -132,7 +133,7 @@ Realistic failures were encountered and resolved, including:
 * Asymmetric ACL behavior blocking ICMP return traffic
 * NAT node limitations requiring Cloud replacement
 
-A full troubleshooting log is available in `troubleshooting.md`.
+A full troubleshooting log is available in [troubleshooting.md](./troubleshooting.md).
 
 ---
 
