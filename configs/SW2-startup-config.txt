@@ -1,0 +1,12 @@
+hostname SW2      
+!         
+!         
+interface GigabitEthernet0/0
+ speed 100
+ duplex full
+ no negotiation auto
+!         
+interface GigabitEthernet0/1
+ switchport mode access
+ negotiation auto
+!   
