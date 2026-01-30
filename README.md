@@ -1,4 +1,4 @@
-# Small Enterprise Network Design with VLAN Segmentation, OSPF, NAT, and ACLs
+# Small Enterprise Network with VLAN Segmentation, OSPF, NAT, and ACLs
 
 ## Project Overview
 
